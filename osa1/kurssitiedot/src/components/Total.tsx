@@ -1,0 +1,5 @@
+import React from 'react'
+
+export const Total = ({total}: {total: number}) => {
+  return <p>Number of exercises {total}</p>
+}
