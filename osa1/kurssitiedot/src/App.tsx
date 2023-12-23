@@ -3,15 +3,28 @@ import Header from "./components/Header"
 import { Total } from "./components/Total"
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const parts = ['Fundamentals of React', 'Using props to pass data', 'State of a component']
-  const exercises = [10, 7, 14]
-
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        part: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        part: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        part: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
   return (
     <div>
-      <Header headerText={course} />
-      <Content parts={parts} exercises={exercises} />
-      <Total total={exercises.reduce((a, b) => a + b, 0)} />
+      <Header headerText={course.name} />
+      <Content parts={course.parts.map((obj) => obj.part)} exercises={course.parts.map((obj) => obj.exercises)} />
+      <Total total={course.parts.map((obj) => obj.exercises).reduce((a, b) => a + b, 0)} />
     </div>
   )
 }
