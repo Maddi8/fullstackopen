@@ -3,7 +3,18 @@ import Header from "./components/Header"
 import { Total } from "./components/Total"
 
 const App = () => {
-  const course = {
+
+  interface Part {
+    name: string;
+    exercises: number;
+  }
+
+  interface Course {
+    name: string;
+    parts: Part[];
+  }
+
+  const course: Course = {
     name: 'Half Stack application development',
     parts: [
       { name: 'Fundamentals of React', exercises: 10 },
